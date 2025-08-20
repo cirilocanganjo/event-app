@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imetro Eventos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-500">
+
+  <!-- Navbar -->
+  <header class="fixed w-full bg-white/70 dark:bg-gray-800/70 backdrop-blur-md shadow-md z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <h1 class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">Imetro Eventos</h1>
+      <nav class="flex gap-6">
+        <a href="#" class="hover:text-indigo-500">Início</a>
+        <a href="#" class="hover:text-indigo-500">Eventos</a>
+        <a href="#" class="hover:text-indigo-500">Sobre</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button onclick="toggleDarkMode()" class="px-3 py-1 rounded-lg bg-indigo-500 text-white">🌙</button>
+        <button onclick="openModal('loginModal')" class="px-3 py-1 rounded-lg border border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-white transition">Login</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="pt-28 text-center px-6">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Organize e Participe de Eventos</h2>
+    <p class="max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400 mb-6">
+      Descubra eventos incríveis e mantenha sua comunidade conectada.
+    </p>
+    <input type="text" placeholder="🔍 Pesquise eventos..." class="w-full max-w-md mx-auto p-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white/70 dark:bg-gray-800/70 backdrop-blur-md">
+  </section>
+
+  <!-- Eventos -->
+  <section class="max-w-7xl mx-auto px-6 py-12 grid gap-6 md:grid-cols-3">
+    <!-- Card -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition">
+      <img src="https://source.unsplash.com/600x300/?conference" alt="evento" class="w-full h-40 object-cover">
+      <div class="p-5">
+        <h3 class="font-bold text-xl mb-2">Conferência de Tecnologia</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">15 de Setembro, Luanda</p>
+        <button onclick="openModal('eventModal')" class="px-4 py-2 bg-indigo-500 text-white rounded-lg">Detalhes</button>
+      </div>
+    </div>
+    <!-- Outro Card -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition">
+      <img src="https://source.unsplash.com/600x300/?music,festival" alt="evento" class="w-full h-40 object-cover">
+      <div class="p-5">
+        <h3 class="font-bold text-xl mb-2">Festival de Música</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">30 de Setembro, Benguela</p>
+        <button onclick="openModal('eventModal')" class="px-4 py-2 bg-indigo-500 text-white rounded-lg">Detalhes</button>
+      </div>
+    </div>
+    <!-- Outro Card -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition">
+      <img src="https://source.unsplash.com/600x300/?workshop" alt="evento" class="w-full h-40 object-cover">
+      <div class="p-5">
+        <h3 class="font-bold text-xl mb-2">Workshop de Inovação</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">12 de Outubro, Huambo</p>
+        <button onclick="openModal('eventModal')" class="px-4 py-2 bg-indigo-500 text-white rounded-lg">Detalhes</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Detalhes do Evento -->
+  <div id="eventModal" class="fixed inset-0 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl max-w-lg w-full p-6">
+      <h2 class="text-2xl font-bold mb-4">Detalhes do Evento</h2>
+      <p class="mb-4 text-gray-600 dark:text-gray-300">Conferência de Tecnologia com palestrantes renomados da área. Participe e expanda seus conhecimentos!</p>
+      <button class="w-full py-2 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 transition">Inscrever-se</button>
+      <button onclick="closeModal('eventModal')" class="mt-4 w-full py-2 rounded-lg border border-gray-400 dark:border-gray-600">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Modal Login -->
+  <div id="loginModal" class="fixed inset-0 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl max-w-sm w-full p-6">
+      <h2 class="text-2xl font-bold mb-4">Entrar</h2>
+      <input type="email" placeholder="Email" class="w-full p-3 mb-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700">
+      <input type="password" placeholder="Senha" class="w-full p-3 mb-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700">
+      <button class="w-full py-2 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 transition">Login</button>
+      <button onclick="closeModal('loginModal')" class="mt-4 w-full py-2 rounded-lg border border-gray-400 dark:border-gray-600">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+    }
+  </script>
+
+</body>
+</html>
