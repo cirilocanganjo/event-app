@@ -1,1 +1,1 @@
-## An professional App to find several events
+## It is a professional web app to find several events.
